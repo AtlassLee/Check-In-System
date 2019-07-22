@@ -120,3 +120,11 @@ A.根据考勤信息计算每个学生旷课信息反馈到前端图表，便于
 ### 5.6二维码扫码模块
 ![Image text](https://github.com/AtlassLee/Check-In-System/blob/master/Check-In-System/picture/U10.png)
 该二维码为内网URL,扫描后跳转无效，需要将项目上传至服务器web容器上才能生成可用的二维码
+## 6.省略的源码
+course.html(略)  
+data-tables.html(略)  
+profile.html(略)  
+QRCode.jsp(略) 二维码页面	  
+reset.jsp(略)  重置密码页面  
+reset1.jsp(略) 重置密码页面  
+sign.jsp(略)   签到页面  
