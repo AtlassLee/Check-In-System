@@ -1,0 +1,602 @@
+<!-- Javascripts -->
+        <!-- Load pace first -->
+        <script src="assets/plugins/core/pace/pace.min.js"></script>
+        <!-- Important javascript libs(put in all pages) -->
+        <script src="assets/js/jquery-1.8.3.min.js"></script>
+        <script>
+        window.jQuery || document.write('<script src="assets/js/libs/jquery-2.1.1.min.js">\x3C/script>')
+        </script>
+        <script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+        <script>
+        window.jQuery || document.write('<script src="assets/js/libs/jquery-ui-1.10.4.min.js">\x3C/script>')
+        </script>
+        <!--[if lt IE 9]>
+  <script type="text/javascript" src="assets/js/libs/excanvas.min.js"></script>
+  <script type="text/javascript" src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <script type="text/javascript" src="assets/js/libs/respond.min.js"></script>
+<![endif]-->
+        <!-- Bootstrap plugins -->
+        <script src="assets/js/bootstrap/bootstrap.js"></script>
+        <!-- Core plugins ( not remove ever) -->
+        <!-- Handle responsive view functions -->
+        <script src="assets/js/jRespond.min.js"></script>
+        <!-- Custom scroll for sidebars,tables and etc. -->
+        <script src="assets/plugins/core/slimscroll/jquery.slimscroll.min.js"></script>
+        <script src="assets/plugins/core/slimscroll/jquery.slimscroll.horizontal.min.js"></script>
+        <!-- Resize text area in most pages -->
+        <script src="assets/plugins/forms/autosize/jquery.autosize.js"></script>
+        <!-- Proivde quick search for many widgets -->
+        <script src="assets/plugins/core/quicksearch/jquery.quicksearch.js"></script>
+        <!-- Bootbox confirm dialog for reset postion on panels -->
+        <script src="assets/plugins/ui/bootbox/bootbox.js"></script>
+        <!-- Other plugins ( load only nessesary plugins for every page) -->
+        <script src="assets/plugins/charts/flot/jquery.flot.js"></script>
+        <script src="assets/plugins/charts/flot/jquery.flot.pie.js"></script>
+        <script src="assets/plugins/charts/flot/jquery.flot.resize.js"></script>
+        <script src="assets/plugins/charts/flot/jquery.flot.time.js"></script>
+        <script src="assets/plugins/charts/flot/jquery.flot.growraf.js"></script>
+        <script src="assets/plugins/charts/flot/jquery.flot.categories.js"></script>
+        <script src="assets/plugins/charts/flot/jquery.flot.stack.js"></script>
+        <script src="assets/plugins/charts/flot/jquery.flot.orderBars.js"></script>
+        <script src="assets/plugins/charts/flot/jquery.flot.tooltip.min.js"></script>
+        <script src="assets/plugins/charts/flot/date.js"></script>
+        <script src="assets/plugins/charts/sparklines/jquery.sparkline.js"></script>
+        <script src="assets/plugins/charts/pie-chart/jquery.easy-pie-chart.js"></script>
+        <script src="assets/plugins/forms/icheck/jquery.icheck.js"></script>
+        <script src="assets/plugins/forms/tags/jquery.tagsinput.min.js"></script>
+        <script src="assets/plugins/forms/tinymce/tinymce.min.js"></script>
+        <script src="assets/plugins/misc/highlight/highlight.pack.js"></script>
+        <script src="assets/plugins/misc/countTo/jquery.countTo.js"></script>
+        <script src="assets/plugins/ui/weather/skyicons.js"></script>
+        <script src="assets/plugins/ui/notify/jquery.gritter.js"></script>
+        <script src="assets/plugins/ui/calendar/fullcalendar.js"></script>
+        <script src="assets/js/jquery.sprFlat.js"></script>
+        <script src="assets/js/app.js"></script>
+    
+		
+			<script>
+
+			//------------- charts.js -------------//
+$(document).ready(function() {
+
+	//get object with colros from plugin and store it.
+	var objColors = $('body').data('sprFlat').getColors();
+	var colours = {
+		white: objColors.white,
+		dark: objColors.dark,
+		red : objColors.red,
+		blue: objColors.blue,
+		green : objColors.green,
+		yellow: objColors.yellow,
+		brown: objColors.brown,
+		orange : objColors.orange,
+		purple : objColors.purple,
+		pink : objColors.pink,
+		lime : objColors.lime,
+		magenta: objColors.magenta,
+		teal: objColors.teal,
+		textcolor: '#5a5e63',
+		gray: objColors.gray
+	}
+
+	//generate random number for charts
+	randNum = function(){
+		return (Math.floor( Math.random()* (1+150-50) ) ) + 80;
+	}
+
+	//------------- Line charts style 2 -------------//
+	$(function() {
+
+		//visiotrs
+		var d1 = [["周一", 85], ["周二", 95], ["周三", 88], ["周四", 65], ["周五", 100], ["周六", 94], ["周日", 66]];
+		
+    	var options = {
+    		grid: {
+				show: true,
+			    labelMargin: 20,
+			    axisMargin: 40, 
+			    borderWidth: 0,
+			    borderColor:null,
+			    minBorderMargin: 20,
+			    clickable: true, 
+			    hoverable: true,
+			    autoHighlight: true,
+			    mouseActiveRadius: 100
+			},
+			series: {
+				grow: {
+		            active: true,
+		     		duration: 1000
+		        },
+	            lines: {
+            		show: true,
+            		fill: false,
+            		lineWidth: 2.5
+	            },
+	            points: {
+	            	show:true,
+	            	radius: 5,
+	            	lineWidth: 3.0,
+	            	fill: true,
+	            	fillColor: colours.red,
+	            	strokeColor: colours.white 
+	            }
+	        },
+	        colors: [colours.dark, colours.red],
+	        legend: { 
+	        	show:false
+	    	},
+	        shadowSize:0,
+	        tooltip: true, //activate tooltip
+			tooltipOpts: {
+				content: "%y.0% 出勤率",
+				shifts: {
+					x: -45,
+					y: -50
+				},
+				defaultTheme: false
+			},
+			yaxis: { 
+				show:false
+			},
+			xaxis: { 
+	        	mode: "categories",
+	        	tickLength: 0
+	        }
+    	}
+
+		var plot = $.plot($("#line-chart-dots2"),[{
+    			label: "Visitors", 
+    			data: d1,
+    		}], options
+    	);
+
+	});
+
+	//------------- Bars chart -------------//
+	$(function () {	
+    	
+		    	       var data = []
+                      $.ajax({
+                type: "POST",
+                url: "user/ajax?action=QuerryCourse&nocache=" + Math.random(),
+                async : false, //同步执行
+                success: function (da) {  
+                  var dataObj=eval("("+da+")")
+                  // $('#des').val(data)
+                  console.log(da)
+                  for(var i = 0;i < dataObj.length ;i++)
+                  {
+                   data.push([dataObj[i].courseName,dataObj[i].rate])
+                  }
+                  console.log(data.length);  
+                //  $('#des').val(data.toString())
+                }
+                             })
+        console.log(data.length);  
+		
+    	//var data = [ ["数据库", 85], ["数学", 95], ["语文", 65], ["英语", 35], ["C语言", 45], ["JUN", 85], ["JUL", 85], ["AUG", 85], ["SEP", 85], ["OCT", 85], ["NOV", 85], ["DEC", 85] ];
+    	
+    	//Replicate the existing bar data to reproduce bar fill effect
+    	var arr= [];
+    	for (var i = 0; i <= data.length -1; i++) {
+    		arr.push(data[i][1]);
+    	};
+    	var largest = 100;
+    	d1 = [];
+    	for (var i = 0; i <= data.length -1; i++) {
+    		sum = largest - data[i][1];
+    		d1.push([data[i][0],sum]);
+    	};
+
+    	var options = {
+    		series : {
+				stack: true
+			},
+			bars: {
+				show:true,
+				barWidth: 0.5,
+				fill:1,
+				align: "center"
+			},
+			grid: {
+				show:true,
+				hoverable: true,
+				borderWidth: 0,
+			    borderColor:null
+			},
+	        colors: [colours.green, colours.gray],
+	        tooltip: true, //activate tooltip
+			tooltipOpts: {
+				content: "出勤率%y.0(%)",
+				shifts: {
+					x: -30,
+					y: -50
+				}
+			},
+			yaxis: {
+				tickLength: 0,
+				show:false
+			},
+			xaxis: { 
+	        	mode: "categories",
+				tickLength: 0
+	        }
+		};
+		 
+		$.plot($("#bars-chart"), [data, d1], options);
+	});
+
+	
+
+	//------------- Pie chart -------------//
+	$(function () {
+	
+	                      var d = []
+                      $.ajax({
+                type: "POST",
+                url: "user/ajax?action=QuerryAll&nocache=" + Math.random(),
+                async : false, //同步执行
+                success: function (da) {  
+                  var dataObj=eval("("+da+")")
+                  for(var i = 0;i < dataObj.length ;i++)
+                  {
+                   d.push(dataObj[i])
+                  }
+                }
+                             })
+							 
+		var options = {
+			series: {
+				pie: { 
+					show: true,
+					innerRadius: 0,
+					radius: 'auto',
+					highlight: {
+						opacity: 0.1
+					},
+					stroke: {
+						width: 2,
+					}
+				}					
+			},
+			legend:{
+				show:true,
+				labelFormatter: function(label, series) {
+				    return '<div style="font-weight:bold;font-size:13px;">'+ label +'</div>'
+				},
+				labelBoxBorderColor: null,
+				margin: 50,
+				width: 20,
+				padding: 1
+			},
+			grid: {
+	            hoverable: true,
+	            clickable: true,
+	        },
+	        tooltip: true, //activate tooltip
+			tooltipOpts: {
+				content: "%s : %y.1"+"%",
+				shifts: {
+					x: -30,
+					y: -50
+				},
+				theme: 'dark',
+				defaultTheme: false
+			}
+		};
+		var data = [
+		    { label: "上周总出勤率",  data: d[0], color: colours.green},
+		    { label: "上周总缺勤率",  data: 100-d[0], color: colours.red},
+		];
+	    $.plot($("#pie-chart"), data, options);
+
+	});
+
+	//------------- Donut chart -------------//
+	$(function () {
+	
+	                var d = []
+                      $.ajax({
+                type: "POST",
+                url: "user/ajax?action=QuerryAll&nocache=" + Math.random(),
+                async : false, //同步执行
+                success: function (da) {  
+                  var dataObj=eval("("+da+")")
+                  for(var i = 0;i < dataObj.length ;i++)
+                  {
+                   d.push(dataObj[i])
+                  }
+                }
+                             })
+                console.log(d);
+				
+		var options = {
+			series: {
+				pie: { 
+					show: true,
+					innerRadius: 0.55,
+					highlight: {
+						opacity: 0.1
+					},
+					radius: 1,
+					stroke: {
+						width: 10
+					},
+					startAngle: 2.15
+				}					
+			},
+			legend:{
+				show:true,
+				labelFormatter: function(label, series) {
+				    return '<div style="font-weight:bold;font-size:13px;">'+ label +'</div>'
+				},
+				labelBoxBorderColor: null,
+				margin: 50,
+				width: 20,
+				padding: 1
+			},
+			grid: {
+	            hoverable: true,
+	            clickable: true,
+	        },
+	        tooltip: true, //activate tooltip
+			tooltipOpts: {
+				content: "%s : %y.1"+"%",
+				shifts: {
+					x: -30,
+					y: -50
+				},
+				theme: 'dark',
+				defaultTheme: false
+			}
+		};
+		var data = [
+		    { label: "本学期总缺勤率",  data: 100-d[0], color: colours.red},
+		    { label: "本学期总出勤率",  data: d[0], color: colours.blue}
+		];
+	    $.plot($("#donut-chart"), data, options);
+
+	});
+
+	//------------- Autoupdate chart -------------//
+	$(function () {
+		// we use an inline data source in the example, usually data would
+	    // be fetched from a server
+	    var data = [], totalPoints = 300;
+	    function getRandomData() {
+	        if (data.length > 0)
+	            data = data.slice(1);
+
+	        // do a random walk
+	        while (data.length < totalPoints) {
+	            var prev = data.length > 0 ? data[data.length - 1] : 50;
+	            var y = prev + Math.random() * 10 - 5;
+	            if (y < 0)
+	                y = 0;
+	            if (y > 100)
+	                y = 100;
+	            data.push(y);
+	        }
+
+	        // zip the generated y values with the x values
+	        var res = [];
+	        for (var i = 0; i < data.length; ++i)
+	            res.push([i, data[i]])
+	        return res;
+	    }
+
+	    // Update interval
+	    var updateInterval = 200;
+
+	    // setup plot
+	    var options = {
+	        series: { 
+	        	shadowSize: 0, // drawing is faster without shadows
+	        	lines: {
+            		show: true,
+            		fill: true,
+            		lineWidth: 3.5,
+            		steps: false
+	            }
+	        },
+	        grid: {
+				show: true,
+			    aboveData: true,
+			    color: colours.textcolor ,
+			    labelMargin: 20,
+			    axisMargin: 0, 
+			    borderWidth: 0,
+			    borderColor:null,
+			    minBorderMargin: 5 ,
+			    clickable: true, 
+			    hoverable: true,
+			    autoHighlight: true,
+			    mouseActiveRadius: 100,
+			},
+			colors: [colours.blue],
+	        tooltip: true, //activate tooltip
+			tooltipOpts: {
+				content: "Value is : %y.0",
+				shifts: {
+					x: -30,
+					y: -50
+				}
+			},	
+	        yaxis: { min: 0, max: 100 },
+	        xaxis: { show: true}
+	    };
+	    var plot = $.plot($("#autoupdate-chart"), [ getRandomData() ], options);
+
+	    function update() {
+	        plot.setData([ getRandomData() ]);
+	        // since the axes don't change, we don't need to call plot.setupGrid()
+	        plot.draw();
+	        
+	        setTimeout(update, updateInterval);
+	    }
+
+	    update();
+	});
+
+	//------------- Sparklines -------------//
+	$('.sparkline-positive').sparkline([5,12,18,15,22, 14,26,28,32,34], {
+		width: '55px',
+		height: '20px',
+		lineColor: colours.green,
+		fillColor: false,
+		spotColor: false,
+		minSpotColor: false,
+		maxSpotColor: false,
+		lineWidth: 2
+	});
+
+	$('.sparkline-negative').sparkline([17,3,9,12,8,4,9,5,2,5], {
+		width: '55px',
+		height: '20px',
+		lineColor: colours.red,
+		fillColor: false,
+		spotColor: false,
+		minSpotColor: false,
+		maxSpotColor: false,
+		lineWidth: 2
+	});
+
+	$('.sparkline-bar-positive').sparkline([5,12,18,15,22, 14,26,28,32,34], {
+		type: 'bar',
+		width: '100%',
+		height: '18px',
+		barColor: colours.green,
+	});
+
+	$('.sparkline-bar-negative').sparkline([17,3,9,12,8,4,9,5,2,5], {
+		type: 'bar',
+		width: '100%',
+		height: '18px',
+		barColor: colours.red,
+	});
+
+	//------------- Sparklines in sidebar -------------//
+	$('#usage-sparkline').sparkline([35,46,24,56,68, 35,46,24,56,68], {
+		width: '180px',
+		height: '30px',
+		lineColor: colours.dark,
+		fillColor: false,
+		spotColor: false,
+		minSpotColor: false,
+		maxSpotColor: false,
+		lineWidth: 2
+	});
+
+	$('#cpu-sparkline').sparkline([22,78,43,32,55, 67,83,35,44,56], {
+		width: '180px',
+		height: '30px',
+		lineColor: colours.dark,
+		fillColor: false,
+		spotColor: false,
+		minSpotColor: false,
+		maxSpotColor: false,
+		lineWidth: 2
+	});
+
+	$('#ram-sparkline').sparkline([12,24,32,22,15, 17,8,23,17,14], {
+		width: '180px',
+		height: '30px',
+		lineColor: colours.dark,
+		fillColor: false,
+		spotColor: false,
+		minSpotColor: false,
+		maxSpotColor: false,
+		lineWidth: 2
+	});
+
+    //------------- Init pie charts -------------//
+    //pass the variables to pie chart init function
+    //first is line width, size for pie, animated time , and colours object for theming.
+	initPieChart(10,40, 1500, colours);
+	initPieChartPage(20,100,1500, colours);
+
+ 	
+});
+
+//Setup easy pie charts in sidebar
+var initPieChart = function(lineWidth, size, animateTime, colours) {
+	$(".pie-chart").easyPieChart({
+        barColor: colours.dark,
+        borderColor: colours.dark,
+        trackColor: '#d9dde2',
+        scaleColor: false,
+        lineCap: 'butt',
+        lineWidth: lineWidth,
+        size: size,
+        animate: animateTime
+    });
+}
+
+//Setup easy pie charts in page
+var initPieChartPage = function(lineWidth, size, animateTime, colours) {
+
+	$(".easy-pie-chart").easyPieChart({
+        barColor: colours.dark,
+        borderColor: colours.dark,
+        trackColor: colours.gray,
+        scaleColor: false,
+        lineCap: 'butt',
+        lineWidth: lineWidth,
+        size: size,
+        animate: animateTime
+    });
+    $(".easy-pie-chart-red").easyPieChart({
+        barColor: colours.red,
+        borderColor: colours.red,
+        trackColor: '#fbccbf',
+        scaleColor: false,
+        lineCap: 'butt',
+        lineWidth: lineWidth,
+        size: size,
+        animate: animateTime
+    });
+    $(".easy-pie-chart-green").easyPieChart({
+        barColor: colours.green,
+        borderColor: colours.green,
+        trackColor: '#b1f8b1',
+        scaleColor: false,
+        lineCap: 'butt',
+        lineWidth: lineWidth,
+        size: size,
+        animate: animateTime
+    });
+    $(".easy-pie-chart-blue").easyPieChart({
+        barColor: colours.blue,
+        borderColor: colours.blue,
+        trackColor: '#d2e4fb',
+        scaleColor: false,
+        lineCap: 'butt',
+        lineWidth: lineWidth,
+        size: size,
+        animate: animateTime
+    });
+    $(".easy-pie-chart-teal").easyPieChart({
+        barColor: colours.teal,
+        borderColor: colours.teal,
+        trackColor: '#c3e5e5',
+        scaleColor: false,
+        lineCap: 'butt',
+        lineWidth: lineWidth,
+        size: size,
+        animate: animateTime
+    });
+    $(".easy-pie-chart-purple").easyPieChart({
+        barColor: colours.purple,
+        borderColor: colours.purple,
+        trackColor: '#dec1f5',
+        scaleColor: false,
+        lineCap: 'butt',
+        lineWidth: lineWidth,
+        size: size,
+        animate: animateTime
+    });
+
+}
+			
+	</script>

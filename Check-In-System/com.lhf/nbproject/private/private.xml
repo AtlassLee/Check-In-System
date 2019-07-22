@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/C:/Users/Administrator/Documents/NetBeansProjects/com.lhf/src/com/app/tools/MD5Util.java</file>
+            <file>file:/C:/Users/Administrator/Documents/NetBeansProjects/com.lhf/src/com/code/model/CourseModel.java</file>
+            <file>file:/C:/Users/Administrator/Documents/NetBeansProjects/com.lhf/src/com/lhf/jdbcHelper.java</file>
+            <file>file:/C:/Users/Administrator/Documents/NetBeansProjects/com.lhf/src/com/code/model/UserModel.java</file>
+            <file>file:/C:/Users/Administrator/Documents/NetBeansProjects/com.lhf/src/com/code/model/CourseAttenceModel.java</file>
+            <file>file:/C:/Users/Administrator/Documents/NetBeansProjects/com.lhf/src/com/app/tools/ServiceException.java</file>
+            <file>file:/C:/Users/Administrator/Documents/NetBeansProjects/com.lhf/src/com/app/web/controller/CourseManagerController.java</file>
+            <file>file:/C:/Users/Administrator/Documents/NetBeansProjects/com.lhf/src/com/app/web/controller/AjaxController.java</file>
+            <file>file:/C:/Users/Administrator/Documents/NetBeansProjects/com.lhf/src/com/lhf/StudentHelper.java</file>
+            <file>file:/C:/Users/Administrator/Documents/NetBeansProjects/com.lhf/src/com/lhf/AttenceHelper.java</file>
+            <file>file:/C:/Users/Administrator/Documents/NetBeansProjects/com.lhf/src/com/app/service/impl/ResetValidService.java</file>
+            <file>file:/C:/Users/Administrator/Documents/NetBeansProjects/com.lhf/src/com/lhf/CourseHelper.java</file>
+            <file>file:/C:/Users/Administrator/Documents/NetBeansProjects/com.lhf/src/com/code/model/AttenceModel.java</file>
+            <file>file:/C:/Users/Administrator/Documents/NetBeansProjects/com.lhf/src/com/app/dao/UserDao.java</file>
+            <file>file:/C:/Users/Administrator/Documents/NetBeansProjects/com.lhf/src/com/app/dao/CourseDao.java</file>
+            <file>file:/C:/Users/Administrator/Documents/NetBeansProjects/com.lhf/src/com/lhf/loginHelper.java</file>
+            <file>file:/C:/Users/Administrator/Documents/NetBeansProjects/com.lhf/src/com/app/tools/RandomString.java</file>
+            <file>file:/C:/Users/Administrator/Documents/NetBeansProjects/com.lhf/src/com/app/web/controller/RegisterController.java</file>
+            <file>file:/C:/Users/Administrator/Documents/NetBeansProjects/com.lhf/src/com/app/service/impl/RegisterValidateService.java</file>
+            <file>file:/C:/Users/Administrator/Documents/NetBeansProjects/com.lhf/src/com/code/model/StudentAttenceModel.java</file>
+            <file>file:/C:/Users/Administrator/Documents/NetBeansProjects/com.lhf/src/com/app/service/impl/CourseManagerService.java</file>
+            <file>file:/C:/Users/Administrator/Documents/NetBeansProjects/com.lhf/src/com/app/tools/SendEmail.java</file>
+        </group>
+    </open-files>
+</project-private>
