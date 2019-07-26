@@ -103,7 +103,6 @@ A.根据考勤信息计算每个学生旷课信息反馈到前端图表，便于
 ![Image text](https://github.com/AtlassLee/Check-In-System/blob/master/Check-In-System/picture/relation.png)
 ## 5.功能模块窗口截图
 ### 5.1登录注册模块
-![Image text](https://github.com/AtlassLee/Check-In-System/blob/master/Check-In-System/picture/U1.png)
 ![Image text](https://github.com/AtlassLee/Check-In-System/blob/master/Check-In-System/picture/U2.png)
 ![Image text](https://github.com/AtlassLee/Check-In-System/blob/master/Check-In-System/picture/U3.png)
 ### 5.2用户信息模块
